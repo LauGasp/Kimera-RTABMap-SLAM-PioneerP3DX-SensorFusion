@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lauragaspar/catkin_pioneer/src/Pioneer_P3_DX2_packages_ROS_Noetic/Pioneer_P3_DX2_packages_ROS_Noetic/urg_c/current/include/urg_c/urg_serial_utils.h
+
+/home/lauragaspar/catkin_pioneer/src/Pioneer_P3_DX2_packages_ROS_Noetic/Pioneer_P3_DX2_packages_ROS_Noetic/urg_c/current/samples/find_port.c
+urg_c/urg_serial_utils.h
+/home/lauragaspar/catkin_pioneer/src/Pioneer_P3_DX2_packages_ROS_Noetic/Pioneer_P3_DX2_packages_ROS_Noetic/urg_c/current/samples/urg_c/urg_serial_utils.h
+stdio.h
+-
+

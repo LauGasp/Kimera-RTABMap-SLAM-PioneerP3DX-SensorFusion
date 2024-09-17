@@ -1,0 +1,4 @@
+[35m[1mScanning dependencies of target estop[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/estop.dir/src/emergency_stop.cpp.o[0m
+[100%] [32m[1mLinking CXX executable /home/lauragaspar/catkin_pioneer/devel/.private/estop/lib/estop/estop[0m
+[100%] Built target estop

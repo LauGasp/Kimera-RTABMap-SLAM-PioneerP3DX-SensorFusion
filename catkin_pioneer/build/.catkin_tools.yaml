@@ -1,0 +1,6 @@
+devel_space: /home/lauragaspar/catkin_pioneer/devel
+install: false
+install_space: /home/lauragaspar/catkin_pioneer/install
+profile: default
+source_space: /home/lauragaspar/catkin_pioneer/src
+workspace: /home/lauragaspar/catkin_pioneer

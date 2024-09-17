@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_pioneer/devel/.private/urg_node/share/roseus/ros/urg_node/msg/Status.l

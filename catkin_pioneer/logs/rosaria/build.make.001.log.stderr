@@ -1,0 +1,7 @@
+[01m[K/home/lauragaspar/catkin_pioneer/src/Pioneer_P3_DX2_packages_ROS_Noetic/Pioneer_P3_DX2_packages_ROS_Noetic/rosaria/RosAria.cpp:6:12:[m[K [01;31m[Kfatal error: [m[KAria.h: No such file or directory
+    6 |   #include [01;31m[K<Aria.h>[m[K
+      |            [01;31m[K^~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/RosAria.dir/build.make:63: CMakeFiles/RosAria.dir/RosAria.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:848: CMakeFiles/RosAria.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/include/rosaria/RosAriaConfig.h

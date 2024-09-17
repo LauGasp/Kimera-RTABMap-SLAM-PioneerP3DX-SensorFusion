@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/lib/python3/dist-packages/rosaria/__init__.py

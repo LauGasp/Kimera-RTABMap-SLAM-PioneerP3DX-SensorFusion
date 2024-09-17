@@ -1,0 +1,8 @@
+prefix=/home/lauragaspar/catkin_pioneer/devel/.private/laser_proc
+
+Name: laser_proc
+Description: Description of laser_proc
+Version: 0.1.6
+Cflags: -I/home/lauragaspar/catkin_pioneer/src/Pioneer_P3_DX2_packages_ROS_Noetic/Pioneer_P3_DX2_packages_ROS_Noetic/laser_proc/include
+Libs: -L${prefix}/lib -llaser_proc_library -llaser_publisher -llaser_transport -llaser_proc_ROS -lLaserProcNodelet
+Requires: roscpp sensor_msgs rosconsole nodelet

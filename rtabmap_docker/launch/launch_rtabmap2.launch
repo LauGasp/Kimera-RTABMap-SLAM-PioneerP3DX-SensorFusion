@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+
+<launch>
+
+   
+  <!-- <arg name="wait_imu_to_init"         default="true"/>
+    <arg name="imu"         default="/imu/filtered/data"/> -->
+
+
+    <!-- Set sim time if not using camera -->
+    <param name="/use_sim_time" value="true"/>
+    <!-- <arg name="imu0_topic"  default="/mynteye/imu/data_raw"/> -->
+    <arg name="imu0_topic"  default="/realsense/imu"/> 
+   
+    <arg name="odom0_topic" default="/odometry/rgbd"/>
+    <arg name="odom1_topic" default="/odom/lidar2d"/>
+    <arg name="odom2_topic" default="/odom_wheels"/>
+
+    <arg name="enable_imu0" default="false"/>    
+    <arg name="enable_odom0" default="true"/>
+    <arg name="enable_odom1" default="false"/>
+    <arg name="enable_odom2" default="false"/>
+
+    <!--What are the topics of the enabled odometries? Might need to add a topic for every odom here-->
+    <arg name="frame_id"    default="base_link" />
+
+
+        <node pkg="imu_filter_madgwick" type="imu_filter_node" name="ImuFilter">
+            <param name="use_mag"       value="false" />
+            <param name="publish_tf"    value="false" />
+            <param name="world_frame"   value="enu" />
+            <remap from="/imu/data" to="/imu/filtered/data"/>
+            <remap from="/imu/data_raw" to="$(arg imu0_topic)" />
+        </node>
+        
+        <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization" clear_params="true" output="screen">
+
+          <param name="frequency" value="20"/>
+          <param name="sensor_timeout" value="0.1"/>
+          <param name="two_d_mode" value="false"/>
+
+          <param name="odom_frame" value="odom"/>
+          <param name="base_link_frame" value="$(arg frame_id)"/>
+          
+          <param name="publish_tf" value="true"/>
+
+          <rosparam if="$(arg enable_imu0)" file="$(find rtabmap_docker)/launch/config/robot_localization/imu0_config.yml" command="load"/>
+
+          <rosparam if="$(arg enable_odom0)" file="$(find rtabmap_docker)/launch/config/robot_localization/odom0_config.yml" command="load"/>
+          <param if="$(arg enable_odom0)" name="odom0" value="$(arg odom0_topic)"/>
+
+          <rosparam if="$(arg enable_odom1)" file="$(find rtabmap_docker)/launch/config/robot_localization/odom1_config.yml" command="load"/>
+          <param if="$(arg enable_odom1)" name="odom1" value="$(arg odom1_topic)"/>
+
+          <rosparam if="$(arg enable_odom2)" file="$(find rtabmap_docker)/launch/config/robot_localization/odom2_config.yml" command="load"/>
+          <param if="$(arg enable_odom2)" name="odom2" value="$(arg odom2_topic)"/>
+
+          <param name="print_diagnostics" value="true"/>
+
+        </node>
+
+
+
+    <!--Is GPS available? Do we want SLAM with RTABMap?-->
+    <arg name="enable_slam" default="true" />
+    <arg name="enable_gps" default="false" />
+    <arg name="database_path" default="~/.ros/rtabmap.db"/> 
+
+   
+  
+     
+    <!--BEGIN ODOMETRY ARGUMENTS-->
+        <!-- RGBD Odom -->
+        <arg name="depth" default="true"/> 
+       <!--  <arg name="rgb_topic" default="/mynteye/left_rect/image_rect"/>
+        <arg name="camera_info_topic" default="/mynteye/left_rect/camera_info" />
+        <arg name="depth_topic" default="/mynteye/depth/image_raw"/>  -->
+        
+        <!---->  <arg name="rgb_topic" default="/realsense/color/image_raw"/>
+        <arg name="camera_info_topic" default="/realsense/color/camera_info" />
+        <arg name="depth_topic" default="/realsense/aligned_depth_to_color/image_raw" /> 
+       
+        <arg name="rgbd_odom_topic" default="/odometry/rgbd"/> 
+    
+        <arg name="feature_type"  default="6"/>
+        <arg name="optimizer_strategy"  default="2"/>
+        <arg name="corn_type"  default="0"/>
+        <arg name="odom_strategy"  default="0"/> <!--0-->
+  
+        
+       
+    <!--END ODOMETRY ARGUMENTS-->
+
+
+    <!-- BEGIN SLAM ARGUMENTS-->
+        <arg name="odom_topic"         default="/odometry/filtered"/>
+
+        <!--gps-->
+        <arg name="gps_topic" default=""/>
+
+        <!-- localization-only mode -->
+        <arg name="localization"      default="false"/>
+        <arg     if="$(arg localization)" name="rtabmap_args"  default=""/>
+        <arg unless="$(arg localization)" name="rtabmap_args"  default="--delete_db_on_start"/>
+    <!--END SLAM ARGUMENTS-->
+    
+    <group ns="rtabmap">
+        <!-- Visual Odometry RGB-->
+        <node pkg="rtabmap_odom" type="rgbd_odometry" name="rgbd_odometry" output="screen" args="$(arg rtabmap_args)">
+
+            <remap from="rgb/image"       to="$(arg rgb_topic)"/>
+            <remap from="depth/image"     to="$(arg depth_topic)"/>
+            <remap from="rgb/camera_info" to="$(arg camera_info_topic)"/>
+            <remap from="odom"            to="$(arg rgbd_odom_topic)"/>        
+            <remap from="imu"             to="/imu/filtered/data"/> 
+       <!-- <param name="wait_imu_to_init"            type="bool"   value="false"/>  -->
+
+
+            <param name="frame_id"               type="string" value="base_link"/>
+            <param name="publish_tf"             type="bool"   value="false"/>
+            <param name="publish_null_when_lost" type="bool"   value="false"/>
+            <param name="subscribe_depth"  value="$(arg depth)"/>
+
+            <param name="compressed"               type="bool"   value="false"/> 
+
+          <!--  <param name="Odom/FillInfoData"      type="string" value="true"/> -->
+            <param name="Odom/ResetCountdown"    type="string" value="1"/>
+
+       
+             
+            <!--Param: Vis/FeatureType = "8" [0=SURF 1=SIFT 2=ORB 3=FAST/FREAK 4=FAST/BRIEF 5=GFTT/FREAK 6=GFTT/BRIEF 7=BRISK 8=GFTT/ORB 9=KAZE 10=ORB-OCTREE 11=SuperPoint 12=SURF/FREAK 13=GFTT/DAISY 14=SURF/DAISY 15=PyDetector]-->
+            <param name="Vis/FeatureType"    type="string" value="$(arg feature_type)"/> 
+
+            <!--Param: Optimizer/Strategy = "2" [Graph optimization strategy: 0=TORO, 1=g2o, 2=GTSAM and 3=Ceres.] -->
+            <param name="Optimizer/Strategy"    type="string" value="$(arg optimizer_strategy)"/>
+
+           <!--Param: Vis/CorType = "0" [Correspondences computation approach: 0=Features Matching, 1=Optical Flow] -->
+            <param name="Vis/CorType"    type="string" value="$(arg corn_type)"/>
+
+            <!--Param: Odom/Strategy = "0" [0=Frame-to-Map (F2M) 1=Frame-to-Frame (F2F) 2=Fovis 3=viso2 4=DVO-SLAM 5=ORB_SLAM2 6=OKVIS 7=LOAM 8=MSCKF_VIO 9=VINS-Fusion 10=OpenVINS 11=FLOAM 12=Open3D] -->
+            <param name="Odom/Strategy"    type="string" value="$(arg odom_strategy)"/> 
+        </node>
+        
+
+    
+        <!-- SLAM (probably won't be necessary and its turned OFF by default, ignore this) -->
+        <node if="$(arg enable_slam)" name="rtabmap_slam" pkg="rtabmap_slam" type="rtabmap" output="screen" args="$(arg rtabmap_args)">
+            <param name="frame_id"        type="string" value="$(arg frame_id)"/>
+
+            <param name="subscribe_depth"  type="bool"   value="true"/>
+            <param name="subscribe_rgb"  type="bool"   value="true"/>
+            <remap from="rgb/image"       to="$(arg rgb_topic)"/>
+            <remap from="depth/image"     to="$(arg depth_topic)"/>
+            <remap from="rgb/camera_info" to="$(arg camera_info_topic)"/>
+
+            
+            <remap from="odom"            to="$(arg odom_topic)"/>
+            <remap if="$(arg enable_gps)" from="gps/fix"                to="$(arg gps_topic)"/>
+            <param name="Rtabmap/DetectionRate" value="1"/>  
+       <!-- <param name="Rtabmap/CreateIntermediateNodes" value="true"/> -->
+
+      <!-- Maximum visual words per image (bag-of-words)--> <!--Turns off loop closure -->
+      <!-- <param name="Kp/MaxFeatures" type="string" value="-1"/>  -->
+      <!-- <param name="Rtabmap/LoopThr" type="string" value="0.05"/>  -->
+      <!-- <param name="RGBD/NeighborLinkRefining" type="string" value="true"/>  --> 
+          
+      <!-- <param name="Vis/MaxFeatures" type="string" value="1000"/> --> 
+
+           <param name="approx_sync" value="true"/>   
+           <param name="Grid/RangeMax" type="string" value="4"/>      
+           
+            <!-- Loop Closure Detection -->
+            <!-- 0=SURF 1=SIFT 2=ORB 3=FAST/FREAK 4=FAST/BRIEF 5=GFTT/FREAK 6=GFTT/BRIEF 7=BRISK 8=GFTT/ORB 9=KAZE 
+            <param name="Kp/DetectorStrategy"    type="string" value="9"/>  -->
+           
+       <!-- <param name="Vis/EstimationType" type="string" value="0"/>-->
+
+            <!-- Minimum visual inliers to accept loop closure -->
+            <param name="Vis/MinInliers" type="string" value="20"/> 
+       <!-- --> <param name="Vis/InlierDistance"        type="string" value="0.3"/>  
+       <!-- <param name="RGBD/OptimizeFromGraphEnd" type="string" value="true"/> -->
+       <!-- <param name="RGBD/LoopClosureHypothesis" value="0.3"/> -->
+       
+            <!-- localization mode -->
+            <param name="Mem/InitWMWithAllNodes" type="string" value="$(arg localization)"/> 
+            <param     if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
+            <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
+           
+            <param name="database_path"        type="string" value="$(arg database_path)"/> 
+        </node>
+    </group>
+    
+    
+    
+ <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher" output="screen" args="0.18 0.005 0.72 0 0.2007 0 base_link realsense_link"/> -->
+  
+ <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher" output="screen" args="0.19 0.005 0.72 0 0.262 0 base_link realsense_link"/> -->
+   
+ <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher" output="screen" args="0.18 0.005 0.72 0 -0.0872 0 base_link realsense_link"/>  -->
+ 
+ <!--  <node name="tf_mynteye" pkg="tf2_ros" type="static_transform_publisher" args="0.205 0.0 0.63 -1.57 0 -1.72 base_link mynteye_link" respawn="true"/> -->
+
+ <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher" output="screen" args="0.18 0.005 0.705 0 -0.262 0 base_link realsense_link"/> -->
+ 
+</launch>

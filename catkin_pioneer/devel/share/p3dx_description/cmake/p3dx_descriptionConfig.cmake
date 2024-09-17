@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_pioneer/devel/.private/p3dx_description/share/p3dx_description/cmake/p3dx_descriptionConfig.cmake

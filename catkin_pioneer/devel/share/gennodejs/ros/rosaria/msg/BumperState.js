@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/gennodejs/ros/rosaria/msg/BumperState.js

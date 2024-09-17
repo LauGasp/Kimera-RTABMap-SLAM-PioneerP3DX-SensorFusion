@@ -1,0 +1,27 @@
+Pioneer_P3_DX2_packages_ROS_Noetic/Pioneer_P3_DX2_packages_ROS_Noetic/rosaria
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/cmake.lock /home/lauragaspar/catkin_pioneer/devel/./cmake.lock
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/include/rosaria/BumperState.h /home/lauragaspar/catkin_pioneer/devel/include/rosaria/BumperState.h
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/include/rosaria/RosAriaConfig.h /home/lauragaspar/catkin_pioneer/devel/include/rosaria/RosAriaConfig.h
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/lib/python3/dist-packages/rosaria/__init__.py /home/lauragaspar/catkin_pioneer/devel/lib/python3/dist-packages/rosaria/__init__.py
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/lib/python3/dist-packages/rosaria/cfg/__init__.py /home/lauragaspar/catkin_pioneer/devel/lib/python3/dist-packages/rosaria/cfg/__init__.py
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/lib/python3/dist-packages/rosaria/cfg/RosAriaConfig.py /home/lauragaspar/catkin_pioneer/devel/lib/python3/dist-packages/rosaria/cfg/RosAriaConfig.py
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/lib/python3/dist-packages/rosaria/msg/__init__.py /home/lauragaspar/catkin_pioneer/devel/lib/python3/dist-packages/rosaria/msg/__init__.py
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/lib/python3/dist-packages/rosaria/msg/_BumperState.py /home/lauragaspar/catkin_pioneer/devel/lib/python3/dist-packages/rosaria/msg/_BumperState.py
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/lib/pkgconfig/rosaria.pc /home/lauragaspar/catkin_pioneer/devel/lib/pkgconfig/rosaria.pc
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/lib/rosaria/RosAria /home/lauragaspar/catkin_pioneer/devel/lib/rosaria/RosAria
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/roseus/ros/rosaria/manifest.l /home/lauragaspar/catkin_pioneer/devel/share/roseus/ros/rosaria/manifest.l
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/roseus/ros/rosaria/msg/BumperState.l /home/lauragaspar/catkin_pioneer/devel/share/roseus/ros/rosaria/msg/BumperState.l
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/rosaria/docs/RosAriaConfig.wikidoc /home/lauragaspar/catkin_pioneer/devel/share/rosaria/docs/RosAriaConfig.wikidoc
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/rosaria/docs/RosAriaConfig-usage.dox /home/lauragaspar/catkin_pioneer/devel/share/rosaria/docs/RosAriaConfig-usage.dox
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/rosaria/docs/RosAriaConfig.dox /home/lauragaspar/catkin_pioneer/devel/share/rosaria/docs/RosAriaConfig.dox
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/rosaria/cmake/rosariaConfig-version.cmake /home/lauragaspar/catkin_pioneer/devel/share/rosaria/cmake/rosariaConfig-version.cmake
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/rosaria/cmake/rosaria-msg-extras.cmake /home/lauragaspar/catkin_pioneer/devel/share/rosaria/cmake/rosaria-msg-extras.cmake
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/rosaria/cmake/rosaria-msg-paths.cmake /home/lauragaspar/catkin_pioneer/devel/share/rosaria/cmake/rosaria-msg-paths.cmake
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/rosaria/cmake/rosariaConfig.cmake /home/lauragaspar/catkin_pioneer/devel/share/rosaria/cmake/rosariaConfig.cmake
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/gennodejs/ros/rosaria/_index.js /home/lauragaspar/catkin_pioneer/devel/share/gennodejs/ros/rosaria/_index.js
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/gennodejs/ros/rosaria/msg/_index.js /home/lauragaspar/catkin_pioneer/devel/share/gennodejs/ros/rosaria/msg/_index.js
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/gennodejs/ros/rosaria/msg/BumperState.js /home/lauragaspar/catkin_pioneer/devel/share/gennodejs/ros/rosaria/msg/BumperState.js
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/common-lisp/ros/rosaria/msg/rosaria-msg.asd /home/lauragaspar/catkin_pioneer/devel/share/common-lisp/ros/rosaria/msg/rosaria-msg.asd
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/common-lisp/ros/rosaria/msg/_package_BumperState.lisp /home/lauragaspar/catkin_pioneer/devel/share/common-lisp/ros/rosaria/msg/_package_BumperState.lisp
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/common-lisp/ros/rosaria/msg/BumperState.lisp /home/lauragaspar/catkin_pioneer/devel/share/common-lisp/ros/rosaria/msg/BumperState.lisp
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/common-lisp/ros/rosaria/msg/_package.lisp /home/lauragaspar/catkin_pioneer/devel/share/common-lisp/ros/rosaria/msg/_package.lisp

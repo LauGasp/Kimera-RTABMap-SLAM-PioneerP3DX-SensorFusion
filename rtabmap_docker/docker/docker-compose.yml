@@ -1,0 +1,34 @@
+version: "3.2"
+
+#Create a network that links containers
+services:
+
+  rtabmap-noetic:
+    #image: introlab3it/rtabmap_ros:noetic-latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    privileged: true
+    network_mode: host
+    container_name: rtabmap-noetic
+    volumes:
+      - type: bind
+        source: ../
+        target: /workspace/catkin_ws/src/rtabmap_docker
+      - type: bind
+        source: $HOME/.ros/
+        target: /root/.ros
+    stdin_open: true
+    tty: true
+    command: /bin/bash -l -c "roslaunch rtabmap_docker launch_rtabmap.launch"
+    #command: /bin/bash -l -c "roslaunch rtabmap_ros rtabmap.launch stereo:=true left_image_topic:=/mynteye/left_rect/image_rect_color right_image_topic:=/mynteye/right_rect/image_rect_color left_camera_info_topic:=/mynteye/left_rect/camera_info right_camera_info_topic:=/mynteye/right_rect/camera_info depth_topic:=/mynteye/depth/image_raw frame_id:=mynteye_link rtabmap_args:='-d'"
+  
+    #command: /bin/bash -l -c "roslaunch rtabmap_launch rtabmap.launch rgb_topic:=/realsense/color/image_raw camera_info_topic:=/realsense/color/camera_info depth_topic:=/realsense/aligned_depth_to_color/image_raw  frame_id:=base_link  imu:=/realsense/imu  rtabmap_args:="-d"" 
+    #command: /bin/bash -l -c "roslaunch rtabmap_launch rtabmap.launch rgb_topic:=/mynteye/left_rect/image_rect camera_info_topic:=/mynteye/left_rect/camera_info depth_topic:=/mynteye/depth/image_raw frame_id:=base_link  rtabmap_args:="-d""
+    
+    #command: /bin/bash -l -c "roslaunch rtabmap_launch rtabmap.launch left_image_topic:=/realsense/infra1/image_rect_raw right_image_topic:=/realsense/infra2/image_rect_raw left_camera_info_topic:=/realsense/infra1/camera_info right_camera_info_topic:=/realsense/infra2/camera_info frame_id:=base_link  stereo:=true imu:=/realsense/imu  rtabmap_args:="--delete_db_on_start"" 
+    
+   #command: /bin/bash -l -c "roslaunch rtabmap_launch rtabmap.launch rgb_topic:=/mynteye/left_rect/image_rect camera_info_topic:=/mynteye/left_rect/camera_info depth_topic:=/mynteye/depth/image_raw frame_id:=base_link  rtabmap_args:="-d""
+   
+   
+ 

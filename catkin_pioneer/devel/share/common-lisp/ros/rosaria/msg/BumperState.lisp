@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_pioneer/devel/.private/rosaria/share/common-lisp/ros/rosaria/msg/BumperState.lisp

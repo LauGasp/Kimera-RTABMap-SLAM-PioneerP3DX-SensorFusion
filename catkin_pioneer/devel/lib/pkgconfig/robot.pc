@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_pioneer/devel/.private/robot/lib/pkgconfig/robot.pc

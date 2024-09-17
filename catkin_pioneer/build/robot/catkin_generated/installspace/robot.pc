@@ -1,0 +1,8 @@
+prefix=/home/lauragaspar/catkin_pioneer/install
+
+Name: robot
+Description: Description of robot
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: rosaria p3dx_description robot_state_publisher estop urg_node
