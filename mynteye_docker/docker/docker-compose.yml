@@ -1,0 +1,28 @@
+version: "3"
+
+#Create a network that links containers
+services:
+  #Create a container for the ROS master
+  #  ros-master:
+  #    image: ros:noetic-ros-core
+  #    network_mode: "host"
+  #    command: roscore
+
+  #Create the Melodic Container
+  ros-melodic:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    privileged: true
+    network_mode: "host"
+    #Mount the src/ folder inside the docker container
+    volumes:
+        - type: bind
+          source: ../../mynteye_docker/
+          target: /root/catkin_ws/src/
+    environment:
+        - SETUP=/root/catkin_ws/devel/setup.bash
+        - BUILDLIST= mynteye_docker
+        - ROSPACKAGE=mynteye_docker
+        - LAUNCHFILE=mynteye.launch
+    command: ./melodic-launch.sh
