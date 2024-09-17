@@ -9,10 +9,19 @@ The primary components and techniques used in this project include:
   - **Intel D435i**
   - **Mynt Eye**
  
+**Tools/Packages:**
 
-**Software and Tools:**
-  - **RTAB-Map:** Used for providing a ground truth (GT) localization estimate.
-  - **EKF (Extended Kalman Filter):** `ekf_robot_localization` fuses data from different sensors to improve the estimation.
-  - **Hector SLAM:** Used for 2D LIDAR data processing.
-  - **Kimera:** Includes Kimera-VIO, Kimera-RPGO, and Kimera-Semantics.
-  - **mmsegmentation_ros:** For semantic segmentation with PSPNet.
+- **[rtabmap_ros](https://github.com/introlab/rtabmap_ros):** This ROS package provides the RTAB-Map framework for RGB-D SLAM. It offers a ground truth (GT) localization estimate through a global loop closure detector with real-time constraints. It can generate 3D point clouds of the environment and/or create a 2D occupancy grid map for navigation.
+
+- **[robot_localization](https://github.com/cra-ros-pkg/robot_localization):** A ROS package for nonlinear state estimation. The `ekf_robot_localization` node integrates data from multiple sensors using the Extended Kalman Filter (EKF) to enhance localization accuracy.
+
+- **[hector_slam](https://github.com/tu-darmstadt-ros-pkg/hector_slam):** ROS package optimized for processing 2D LIDAR data and generating detailed 2D maps.
+
+- **[Kimera-VIO-ROS](https://github.com/MIT-SPARK/Kimera-VIO-ROS):** A ROS wrapper for Kimera-VIO, providing Visual-Inertial Odometry (VIO) capabilities.
+
+- **[Kimera-Semantics](https://github.com/MIT-SPARK/Kimera-Semantics):** Real-Time 3D Semantic Reconstruction from 2D data.
+
+- **[Kimera-Multi](https://github.com/MIT-SPARK/Kimera-Multi):** This repository integrates multiple Kimera components, including Kimera-Semantics, Kimera-VIO, Kimera-Distributed, Kimera-Multi-LCD, Kimera-PGMO, DPGO, and DPGO-ROS.
+
+- **[mmsegmentation_ros](https://github.com/open-mmlab/mmsegmentation_ros):** A ROS package that utilizes the mmsegmentation toolbox from OpenMMLab for semantic segmentation. In this case, the PSPNet network was used for detailed semantic segmentation.
+
