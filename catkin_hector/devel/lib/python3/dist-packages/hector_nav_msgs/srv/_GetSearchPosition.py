@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_hector/devel/.private/hector_nav_msgs/lib/python3/dist-packages/hector_nav_msgs/srv/_GetSearchPosition.py

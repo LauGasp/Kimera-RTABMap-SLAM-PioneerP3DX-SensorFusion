@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_hector/devel/.private/hector_compressed_map_transport/lib/pkgconfig/hector_compressed_map_transport.pc

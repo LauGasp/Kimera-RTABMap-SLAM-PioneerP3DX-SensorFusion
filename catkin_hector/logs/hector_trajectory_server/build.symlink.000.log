@@ -1,0 +1,4 @@
+Symlinking /home/lauragaspar/catkin_hector/devel/lib/hector_trajectory_server/hector_trajectory_server
+Symlinking /home/lauragaspar/catkin_hector/devel/lib/pkgconfig/hector_trajectory_server.pc
+Symlinking /home/lauragaspar/catkin_hector/devel/share/hector_trajectory_server/cmake/hector_trajectory_serverConfig-version.cmake
+Symlinking /home/lauragaspar/catkin_hector/devel/share/hector_trajectory_server/cmake/hector_trajectory_serverConfig.cmake

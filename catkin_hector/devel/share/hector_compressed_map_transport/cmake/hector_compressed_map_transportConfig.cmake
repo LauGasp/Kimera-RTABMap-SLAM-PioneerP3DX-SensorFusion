@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_hector/devel/.private/hector_compressed_map_transport/share/hector_compressed_map_transport/cmake/hector_compressed_map_transportConfig.cmake

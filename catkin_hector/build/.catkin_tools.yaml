@@ -1,0 +1,6 @@
+devel_space: /home/lauragaspar/catkin_hector/devel
+install: false
+install_space: /home/lauragaspar/catkin_hector/install
+profile: default
+source_space: /home/lauragaspar/catkin_hector/src
+workspace: /home/lauragaspar/catkin_hector

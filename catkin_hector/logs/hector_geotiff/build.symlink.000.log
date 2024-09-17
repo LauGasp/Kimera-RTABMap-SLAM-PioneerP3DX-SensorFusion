@@ -1,0 +1,6 @@
+Symlinking /home/lauragaspar/catkin_hector/devel/lib/libgeotiff_writer.so
+Symlinking /home/lauragaspar/catkin_hector/devel/lib/pkgconfig/hector_geotiff.pc
+Symlinking /home/lauragaspar/catkin_hector/devel/lib/hector_geotiff/geotiff_saver
+Symlinking /home/lauragaspar/catkin_hector/devel/lib/hector_geotiff/geotiff_node
+Symlinking /home/lauragaspar/catkin_hector/devel/share/hector_geotiff/cmake/hector_geotiffConfig-version.cmake
+Symlinking /home/lauragaspar/catkin_hector/devel/share/hector_geotiff/cmake/hector_geotiffConfig.cmake

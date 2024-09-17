@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/lauragaspar/catkin_hector/devel/.private/hector_nav_msgs/setup.sh

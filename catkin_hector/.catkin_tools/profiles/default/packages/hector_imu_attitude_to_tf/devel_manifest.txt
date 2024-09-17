@@ -1,0 +1,6 @@
+hector_slam/hector_imu_attitude_to_tf
+/home/lauragaspar/catkin_hector/devel/.private/hector_imu_attitude_to_tf/cmake.lock /home/lauragaspar/catkin_hector/devel/./cmake.lock
+/home/lauragaspar/catkin_hector/devel/.private/hector_imu_attitude_to_tf/lib/pkgconfig/hector_imu_attitude_to_tf.pc /home/lauragaspar/catkin_hector/devel/lib/pkgconfig/hector_imu_attitude_to_tf.pc
+/home/lauragaspar/catkin_hector/devel/.private/hector_imu_attitude_to_tf/lib/hector_imu_attitude_to_tf/imu_attitude_to_tf_node /home/lauragaspar/catkin_hector/devel/lib/hector_imu_attitude_to_tf/imu_attitude_to_tf_node
+/home/lauragaspar/catkin_hector/devel/.private/hector_imu_attitude_to_tf/share/hector_imu_attitude_to_tf/cmake/hector_imu_attitude_to_tfConfig.cmake /home/lauragaspar/catkin_hector/devel/share/hector_imu_attitude_to_tf/cmake/hector_imu_attitude_to_tfConfig.cmake
+/home/lauragaspar/catkin_hector/devel/.private/hector_imu_attitude_to_tf/share/hector_imu_attitude_to_tf/cmake/hector_imu_attitude_to_tfConfig-version.cmake /home/lauragaspar/catkin_hector/devel/share/hector_imu_attitude_to_tf/cmake/hector_imu_attitude_to_tfConfig-version.cmake

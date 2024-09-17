@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_hector/devel/.private/hector_slam_launch/lib/pkgconfig/hector_slam_launch.pc

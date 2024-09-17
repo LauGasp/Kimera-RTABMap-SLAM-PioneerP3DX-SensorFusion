@@ -1,0 +1,1 @@
+/home/lauragaspar/catkin_hector/devel/.private/hector_imu_tools/lib/pkgconfig/hector_imu_tools.pc

@@ -1,0 +1,5 @@
+hector_slam/hector_marker_drawing
+/home/lauragaspar/catkin_hector/devel/.private/hector_marker_drawing/cmake.lock /home/lauragaspar/catkin_hector/devel/./cmake.lock
+/home/lauragaspar/catkin_hector/devel/.private/hector_marker_drawing/lib/pkgconfig/hector_marker_drawing.pc /home/lauragaspar/catkin_hector/devel/lib/pkgconfig/hector_marker_drawing.pc
+/home/lauragaspar/catkin_hector/devel/.private/hector_marker_drawing/share/hector_marker_drawing/cmake/hector_marker_drawingConfig-version.cmake /home/lauragaspar/catkin_hector/devel/share/hector_marker_drawing/cmake/hector_marker_drawingConfig-version.cmake
+/home/lauragaspar/catkin_hector/devel/.private/hector_marker_drawing/share/hector_marker_drawing/cmake/hector_marker_drawingConfig.cmake /home/lauragaspar/catkin_hector/devel/share/hector_marker_drawing/cmake/hector_marker_drawingConfig.cmake
