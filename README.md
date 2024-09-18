@@ -139,31 +139,56 @@ To start the **mmsegmentation_ros** Docker container, run the following commands
 
 ```
 cd mmseg_ros_docker/docker
-docker start docker-mmsegmetation-melodic-1
-# or use the container ID:
+# use the container ID:
 docker start 1f9e8304ccdc
 docker exec -it 1f9e8304ccdc /bin/bash
-
 ```
+
+The Docker environment is configured with the following components:
+
+- **PyTorch**: 1.10.0
+- **CUDA**: 11.3
+- **cuDNN**: 8
+- **MMCV**: 1.6.0
+
+The following Python packages are installed in the Docker environment:
+
+- mmcv-full: 1.6.0
+- mmdet: 2.28.0
+- mmengine: 0.10.4
+- numpy: 1.22.0
+- onnxruntime-gpu: 1.14.0
+- opencv-python: 4.5.4
+- torch: 1.10.0+cu113
+- mmsegmentation: 0.25.0
+
+The host system has the following characteristics:
+
+- **Driver NVIDIA**: 470.256.02
+- **CUDA Version**: 11.4
+
+    
+
 **Semantic Segmentation with mmsegmentation_ros**
 
 The mmsegmentation_ros package contains the `mmsegmentor.py` script created by Jianheng Liu. This script performs semantic segmentation on images received from a ROS topic, applying a pre-trained segmentation model, and then publishing the processed results.
 
 Key parameters loaded in the script include:
 
-    - config_path: Path to the model configuration file.
-    - checkpoint_path: Path to the pre-trained model weights.
-    - device: Specifies the CPU or GPU for inference.
-    - palette: Color palette used for visualizing the segmentation maps.
-    - publish_rate: Rate at which the processed images are published.
+- **`config_path`**: Path to the model configuration file.
+- **`checkpoint_path`**: Path to the pre-trained model weights.
+- **`device`**: Specifies the CPU or GPU to be used for inference.
+- **`palette`**: Color palette used for visualizing the segmentation maps.
+- **`publish_rate`**: Rate at which the processed images are published.
+
 
 **Custom Script for Class Filtering**
 
-Building on top of the original script, a custom script was added that allows loading a `.yaml` file to filter specific classes from the chosen dataset and select the desired color palette for segmentation.
-
+Building on top of the original script, a custom script `mmsegmentor_yaml.py` was added that allows loading a `.yaml` file to filter specific classes from the chosen dataset and select the desired color palette for segmentation. The **`yaml_file_path`** parameter has been added to the key parameters section. 
+This can be found in `~/catkin_ws/src/mmsegmentation_ros/scripts`.
 Note: The color format for output images is BGR. 
 
-Ensure that the paths and parameters in the launch file are correctly set to match your dataset and configuration. The launch file will handle calling the node and passing the required parameters.
+The configuration files for the MMSegmentation model should be specified in the launch file. 
 
 **Model Configurations and Datasets**
 
@@ -172,6 +197,12 @@ In this experiment, the PSPNet network with an R-50-D8 backbone was used. It was
 You can find other models and results available for different datasets [here](https://github.com/open-mmlab/mmsegmentation/tree/main/configs). 
 
 To run the models, you will need both the `config` file and the `model` (`checkpoint`) file.
+
+Then prepare the bag for playback, set `sim_use_time` to true and navigate to the directory containing the launch file and run it:
+
+```cd ~/catkin_ws/src/mmseg_ros_docker/launch
+roslaunch mmsegmentor_test.launch
+```
 
 ### 6. Docker Evaluation and NVIDIA GPU Monitoring
 
@@ -192,9 +223,7 @@ To record the resource usage data (CPU and Memory) of your Docker container:
 #### GPU Utilization Monitoring and Plot Generation
 
 To monitor GPU and memory usage over time, the `nvidia-smi` command is used. 
-
-1. Use the appropriate script to capture GPU metrics.
-2. The script will generate a plot that is saved as a PDF document.   ```python plot_gpu_usage.py```
+The script will generate a plot that is saved as a PDF document:   ```python plot_gpu_usage.py```
 
 
 
