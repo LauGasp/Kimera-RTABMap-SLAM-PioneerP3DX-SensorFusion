@@ -229,15 +229,29 @@ To record the resource usage data (CPU and Memory) of your Docker container:
 
    This will generate a CSV file with the recorded container data.
 
-2. Once you have the CSV data, generate a plot and export it to a PDF file by running: ```python plot_docker_usage.py```
+2. Once you have the CSV data, generate a plot and export it to a PDF file by running: `python plot_docker_usage.py`
 
    This will create a PDF file with CPU and memory usage plotted over time.
 
 #### GPU Utilization Monitoring and Plot Generation
 
 To monitor GPU and memory usage over time, the `nvidia-smi` command is used. 
-The script will generate a plot that is saved as a PDF document:   ```python plot_gpu_usage.py```
+The script will generate a plot that is saved as a PDF document:`python plot_gpu_usage.py`
 
 
+### 7. Scripts for Converting Files to Different Formats
+
+In the `/Other_code` folder, you will find the scripts `conv_csv_tum.py` and `conv_txt_tum.py`, which convert CSV files to TUM and TXT files to TUM, respectively.
+
+Note: You need to adjust the input and output paths in each script according to your directory structure, in addition to the transformations that are to be applied. 
+
+### 8. Sensors Calibration
+
+- [RealSense D435i setup (Infrared)](https://github.com/MIT-SPARK/Kimera-VIO-ROS/blob/master/docs/hardware_setup.md)
+- 
+Additionally, check out the following videos for more guidance:
+
+- [Visual-Inertial Sensor Calibration 1](https://www.youtube.com/watch?v=rBT5O5TEOV4)
+- [Visual-Inertial Sensor Calibration 2](https://www.youtube.com/watch?v=BtzmsuJemgI&t=362s)
 
 
