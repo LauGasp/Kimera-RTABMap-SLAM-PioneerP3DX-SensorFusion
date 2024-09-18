@@ -106,6 +106,9 @@ roslaunch hector_slam_launch tutorial.launch
 This method includes several modules: **Kimera-VIO**, **Kimera-RPGO**, and **Kimera-Semantics**. Below are the steps to get these modules running on a single robot.
 
 #### Running the Kimera Docker Container
+
+The `docker pull laugasp/kimera_workspace:latest` is used to download the Docker image used. 
+
 ```
 cd Docker/kimera_docker/docker 
 docker start kimera_container
