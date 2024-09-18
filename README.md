@@ -114,7 +114,7 @@ To get the single robot odometry working, ensure that: the topics are mapped cor
 cd /home/catkin_ws/src/Kimera-VIO-ROS/launch
 roslaunch kimera_vio_ros kimera_vio_ros_realsense_new.launch
 ```
-In the launch parameters, the user may specify whether or not to activate the RPGO: 
+Once you have the odometry (Poses 3D), you can activate the loop detection (loop closures) of the Kimera-RPGO module with these parameters:
 ```
  <arg name="use_lcd"                 default="true"/>
  <arg name="lcd_no_optimize"         default="false"/>
