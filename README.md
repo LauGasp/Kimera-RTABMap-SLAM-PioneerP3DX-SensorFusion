@@ -64,10 +64,6 @@ To launch the robot platform and the selected sensors, use the `catkin_pioneer` 
 
 
 ```
-cd catkin_pioneer/
-catkin_build
-source devel/setup.bash
-cd src/Pioneer_P3_DX2_packages_ROS_Noetic/Pioneer_P3_DX2_packages_ROS_Noetic/robot/launch
 roslaunch robot robot.launch 
 ```
 To control the robot via keyboard inputs, start the teleop node using the following command:
@@ -116,7 +112,7 @@ docker start kimera_container
 docker exec -it kimera_container /bin/bash
 ```
 
-To get the single robot odometry working (in our case, using Kimera-VIO), ensure that: the topics are mapped correctly and that you are pointing to the right folder that has your robot's and sensor's configurations. 
+To get the single robot odometry working, ensure that: the topics are mapped correctly and that you are pointing to the right folder that has your robot's and sensor's configurations. 
 
 Once configured, you can launch VIO on each robot, input stereo images and IMU data, and get a reasonable odometry estimate. Here's how to launch Kimera-VIO:
 ```
@@ -134,12 +130,74 @@ Kimera-Semantics can be fed with data from other odometry systems, such as Kimer
 To run Kimera-Semantics: 
 
 ``` cd /home/catkin_ws/src/Kimera-Semantics/kimera_semantics_ros ```
+
 Make sure to input the correct sensor frames and topics. There is a folder with launch files and `.csv` files in the `/cfg` directory containing the correct semantic-color configurations. 
+
 Example of launching Kimera-Semantics:
 ```roslaunch kimera_semantics_ros kimera_metric_realsense_new.launch```
 
+### 5. Docker with mmsegmentation ROS Container
 
+To start the **mmsegmentation_ros** Docker container, run the following commands:
 
+```
+cd mmseg_ros_docker/docker
+docker start docker-mmsegmetation-melodic-1
+# or use the container ID:
+docker start 1f9e8304ccdc
+docker exec -it 1f9e8304ccdc /bin/bash
+
+```
+**Semantic Segmentation with mmsegmentation_ros**
+
+The mmsegmentation_ros package contains the `mmsegmentor.py` script created by Jianheng Liu. This script performs semantic segmentation on images received from a ROS topic, applying a pre-trained segmentation model, and then publishing the processed results.
+
+Key parameters loaded in the script include:
+
+    - config_path: Path to the model configuration file.
+    - checkpoint_path: Path to the pre-trained model weights.
+    - device: Specifies the CPU or GPU for inference.
+    - palette: Color palette used for visualizing the segmentation maps.
+    - publish_rate: Rate at which the processed images are published.
+
+**Custom Script for Class Filtering**
+
+Building on top of the original script, a custom script was added that allows loading a `.yaml` file to filter specific classes from the chosen dataset and select the desired color palette for segmentation.
+
+Note: The color format for output images is BGR. 
+
+Ensure that the paths and parameters in the launch file are correctly set to match your dataset and configuration. The launch file will handle calling the node and passing the required parameters.
+
+**Model Configurations and Datasets**
+
+In this experiment, the PSPNet network with an R-50-D8 backbone was used. It was trained on the ADE20K dataset, but the Cityscapes dataset was also tested.
+
+You can find other models and results available for different datasets [here](https://github.com/open-mmlab/mmsegmentation/tree/main/configs). 
+
+To run the models, you will need both the `config` file and the `model` (`checkpoint`) file.
+
+### 6. Docker Evaluation and NVIDIA GPU Monitoring
+
+#### Docker Container Usage Monitoring
+
+In the `/Other_code` directory, there is a script to monitor Docker container usage (CPU and Memory) and generate plots in a PDF document.
+
+To record the resource usage data (CPU and Memory) of your Docker container:
+
+1. Edit the container name and the `.bag` file that will be played in the `python run_docker_down_csv.py` file.
+
+   This will generate a CSV file with the recorded container data.
+
+2. Once you have the CSV data, generate a plot and export it to a PDF file by running: ```python plot_docker_usage.py```
+
+   This will create a PDF file with CPU and memory usage plotted over time.
+
+#### GPU Utilization Monitoring and Plot Generation
+
+To monitor GPU and memory usage over time, the `nvidia-smi` command is used. 
+
+1. Use the appropriate script to capture GPU metrics.
+2. The script will generate a plot that is saved as a PDF document.   ```python plot_gpu_usage.py```
 
 
 
