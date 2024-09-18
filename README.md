@@ -109,7 +109,7 @@ This method includes several modules: **Kimera-VIO**, **Kimera-RPGO**, and **Kim
 
 The `docker pull laugasp/kimera_workspace:latest` is used to download the Docker image needed for the environment. 
 
-To get the single robot odometry working, ensure that: the topics are mapped correctly and that you are pointing to the right folder that has your robot's and sensor's configurations. Once configured, you can launch VIO on each robot, input stereo images and IMU data, and get a reasonable odometry estimate. Here's how to launch Kimera-VIO:
+To get the single robot odometry working, ensure that: the topics are mapped correctly and that you are pointing to the right folder that has your robot's and sensor's configurations. Once configured, you can launch VIO on each robot, input stereo images and IMU data, and get a reasonable odometry estimate. Here's how to launch **Kimera-VIO**:
 ```
 cd /home/catkin_ws/src/Kimera-VIO-ROS/launch
 roslaunch kimera_vio_ros kimera_vio_ros_realsense_new.launch
@@ -125,7 +125,13 @@ Note: Other launch files are available, such as those provided by the Kimera aut
 
 To change the calibration parameters, navigate to: `cd /home/catkin_ws/src/Kimera-VIO/params `
 
-Kimera-Semantics requires odometry data and a neural network for segmentation. For this, the `mmsegmentation_ros` package is adapted for class filtering and is based on the mmsegmentation framework.
+**Enable Dense Depth Stereo estimation**
+
+To enable dense depth stereo estimation using OpenCV's StereoBM algorithm, you can set the parameter `run_stereo_dense` to `1` or `true`. For more info can be [here](http://wiki.ros.org/stereo_image_proc). 
+
+In your workspace directory (`/Kimera-VIO-ROS/cfg/calibr`), place the `.yaml` files (e.g., similar to euroc_camchain.yaml) that you obtained from the calibration process.
+
+**Kimera-Semantics** requires odometry data and a neural network for segmentation. For this, the `mmsegmentation_ros` package is adapted for class filtering and is based on the mmsegmentation framework.
 Kimera-Semantics can be fed with data from other odometry systems, such as Kimera-VIO, Kimera-RPGO, or RTAB-Map.
 
 To run Kimera-Semantics, navigate to: `cd /home/catkin_ws/src/Kimera-Semantics/kimera_semantics_ros`
