@@ -248,7 +248,7 @@ Note: You need to adjust the input and output paths in each script according to 
 ### 8. Sensors Calibration
 
 - [RealSense D435i setup (Infrared)](https://github.com/MIT-SPARK/Kimera-VIO-ROS/blob/master/docs/hardware_setup.md)
-- 
+
 Additionally, check out the following videos for more guidance:
 
 - [Visual-Inertial Sensor Calibration 1](https://www.youtube.com/watch?v=rBT5O5TEOV4)
