@@ -109,12 +109,6 @@ This method includes several modules: **Kimera-VIO**, **Kimera-RPGO**, and **Kim
 
 The `docker pull laugasp/kimera_workspace:latest` is used to download the Docker image used. 
 
-```
-cd Docker/kimera_docker/docker 
-docker start kimera_container
-docker exec -it kimera_container /bin/bash
-```
-
 To get the single robot odometry working, ensure that: the topics are mapped correctly and that you are pointing to the right folder that has your robot's and sensor's configurations. 
 
 Once configured, you can launch VIO on each robot, input stereo images and IMU data, and get a reasonable odometry estimate. Here's how to launch Kimera-VIO:
