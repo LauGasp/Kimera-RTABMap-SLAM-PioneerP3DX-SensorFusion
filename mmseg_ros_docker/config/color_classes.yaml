@@ -1,0 +1,46 @@
+target_classes:
+  - "person"
+  - "door"
+  - "bottle"
+  - "plant"
+  - "cabinet"
+  - "table"
+  - "office chair"
+  - "desk"
+  - "box"
+  - "computer"
+  - "poster"
+  - "monitor"
+  - "floor"
+  - "wall"
+  - "file cabinet"
+  - "bookcase"
+  - "whiteboard"
+  - "trash can"
+  - "shelf"
+  - "chair"
+  - "windowpane"
+
+colors:
+  person: [150, 5, 61]
+  door: [8, 255, 51]
+  bottle: [0, 255, 10]
+  plant: [204, 255, 4]
+  cabinet: [224, 5, 255]
+  table: [255, 6, 82]
+  armchair: [8, 255, 214]
+  desk: [10, 255, 71]
+  box: [0, 255, 20]
+  computer: [0, 255, 173]
+  poster: [143, 255, 0]
+  monitor: [0, 92, 255]
+  floor: [80, 50, 50]
+  wall: [120, 120, 120]
+  file cabinet: [7, 255, 255]
+  bookcase: [0, 255, 245]
+  whiteboard: [255, 255, 255]
+  trash can: [173, 0, 255]
+  shelf: [255, 7, 71]
+  chair: [204, 70, 3]
+  windowpane: [230, 230, 230]
+

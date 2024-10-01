@@ -1,0 +1,46 @@
+target_classes:
+  - "wall"
+  - "floor"
+  - "bed"
+  - "cabinet"
+  - "table"
+  - "sofa"
+  - "curtain"
+  - "chair"
+  - "wardrobe"
+  - "lamp"
+  - "cushion"
+  - "countertop"
+  - "stove"
+  - "bottle"
+  - "oven"
+  - "rug"
+  - "refrigerator"
+  - "screen"
+  - "sink"
+  - "seat"
+  - "pan"
+
+colors:
+  wall: [120, 120, 120]
+  floor: [80, 50, 50]
+  bed: [150, 150, 255]
+  cabinet: [204, 5, 255]
+  table: [255, 6, 82]
+  sofa: [255, 184, 6]
+  curtain: [255, 204, 153]
+  chair: [204, 70, 3]
+  wardrobe: [128, 64, 0]
+  lamp: [255, 255, 128]
+  cushion: [255, 153, 204]
+  countertop: [128, 128, 128]
+  stove: [200, 200, 200]
+  bottle: [0, 255, 10]
+  oven: [255, 102, 102]
+  rug: [255, 204, 204]
+  refrigerator: [153, 204, 255]
+  screen: [128, 128, 255]
+  sink: [204, 204, 255]
+  seat: [102, 255, 102]
+  pan: [0, 255, 173]
+

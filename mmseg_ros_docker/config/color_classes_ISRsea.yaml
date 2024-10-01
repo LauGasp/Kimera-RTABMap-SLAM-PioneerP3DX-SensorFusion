@@ -1,0 +1,36 @@
+target_classes:
+  - "wall"
+  - "floor"
+  - "person"
+  - "door"
+  - "table"
+  - "plant"
+  - "chair"
+  - "water"
+  - "desk"
+  - "computer"
+  - "bottle"
+  - "poster"
+  - "stool"
+  - "ball"
+  - "vase"
+  - "monitor"
+
+colors:
+  wall: [120, 120, 120]
+  floor: [80, 50, 50]
+  person: [150, 5, 61]
+  door: [8, 255, 51]
+  table: [255, 6, 82]
+  plant: [204, 255, 4]
+  chair: [204, 70, 3]
+  water: [0, 102, 200]
+  desk: [10, 255, 71]
+  computer: [0, 255, 173]
+  bottle: [0, 255, 10]
+  poster: [143, 255, 0]
+  stool: [255, 184, 6]
+  ball: [255, 0, 31]
+  vase: [255, 0, 245]
+  monitor: [0, 92, 255]
+

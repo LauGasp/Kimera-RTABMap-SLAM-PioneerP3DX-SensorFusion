@@ -1,0 +1,35 @@
+version: "3.2"
+
+services:
+  #novnc:
+  #  image: theasp/novnc:latest
+  #  environment:
+  #    - DISPLAY_WIDTH=1920
+  #    - DISPLAY_HEIGHT=1080
+  #    - RUN_XTERM=no
+  #  ports:
+  #    - 6565:8080
+  #  network_mode: host
+  #  container_name: novnc  
+
+
+  mmsegmentation-melodic:
+    image: mmsegmentation:melodic
+    stdin_open: true
+    tty: true
+    network_mode: host
+    volumes:
+      - type: bind
+        source: ../
+        target: /root/catkin_ws/src/mmseg_ros_docker
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: bash
+
+networks:
+  vnc-net-2:
